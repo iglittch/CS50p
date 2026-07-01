@@ -18,11 +18,27 @@ def main():
         print(" ")
 
 
-def convert(time):
-    time = time.replace(":",".")
-    time = float(time)
-    
-    return time
+def convert(time): 
+    # 12 hour support
+    if time.endswith("a.m."):
+        time = time.replace(":",".")
+        time = time.replace("a.m.","")
+        time = float(time) 
+
+        time = time - 12.00
+        return time
+    elif time.endswith("p.m."):
+        time = time.replace(":",".")
+        time = time.replace("p.m.","")
+        time = float(time) 
+
+        time = time + 12.00
+        return time
+    else:
+        time = time.replace(":",".")
+        time = float(time) 
+        return time
+
 
 
 if __name__ == "__main__":
