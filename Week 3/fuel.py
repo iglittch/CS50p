@@ -13,6 +13,8 @@ class ImproperFractionError(Exception):
 
 class NegativeNumeratorError(Exception):
     """Raised if the numerator is negative"""
+    pass
+
 def check_fraction(prompt):
     
     while True:
