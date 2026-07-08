@@ -21,7 +21,7 @@ def check_fraction(prompt):
 
             if x.numerator > x.denominator :
                 raise ImproperFractionError(x)
-            elif x.numerator < 1:
+            elif x.numerator < 0:
                 raise NegativeNumeratorError(x)
         except ValueError:
             pass
