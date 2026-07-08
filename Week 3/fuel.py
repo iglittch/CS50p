@@ -7,19 +7,36 @@ def main():
 
     print(current_level)
 
+class ImproperFractionError(Exception):
+    """Raised when the numerator is greater than the denomenator"""
+    pass
+
+class NegativeNumeratorError(Exception):
+    """Raised if the numerator is negative"""
 def check_fraction(prompt):
     
     while True:
         try:
-            return Fraction(input(prompt))
+            x = Fraction(input(prompt))
+
+            if x.numerator > x.denominator :
+                raise ImproperFractionError(x)
+            elif x.numerator < 1:
+                raise NegativeNumeratorError(x)
         except ValueError:
             pass
         except ZeroDivisionError:
             pass
+        except ImproperFractionError as error:
+            pass
+        except NegativeNumeratorError as error:
+            pass
+        else:
+            return x
 
     
 def get_percentage(z):
-    level = z * 100
+    level = round(z * 100)
     if level >= 99:
         return "F"
     if level <= 1:
