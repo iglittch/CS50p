@@ -1,7 +1,7 @@
 def main():
     # Prompt user for name of file and Take care of case sensitivity
     file_name = input("File Name: ")
-    file_name = file_name.casefold()
+    file_name = file_name.casefold().strip()
     file_type(file_name)
 
 def file_type(file):
